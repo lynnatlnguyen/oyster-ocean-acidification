@@ -13,4 +13,3 @@ pH 7.5: SRX11136232
 Transcriptome Assembly
 1. Create scripts to run SPAdes for each group
 2. Run scripts through SLURM
-
