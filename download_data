@@ -1,0 +1,15 @@
+# download sratoolkit
+wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.1.1/sratoolkit.3.1.1-centos_linux64.tar.gz
+tar -xvzf sratoolkit.3.1.1-centos_linux64.tar.gz
+export PATH=$PATH:/project/stuckert/ltnguy95/final_project/sratoolkit.3.1.1-centos_linux64/bin
+
+# download data for pH 7.8 (control) and convert .sra to fastq (in control_pH7.8 directory)
+prefetch SRX11136234
+fasterq-dump SRX11136234
+
+# download data for pH 7.5 (experimental) and convert .sra to fastq (in experiment_pH7.5 directory)
+prefetch SRX11136232
+fasterq-dump SRX11136232
+
+
+
