@@ -28,3 +28,12 @@ pH 7.5: experiment_spades.sh
 1. Download Subreads
 2. Obtain GTF file for Pacific oysters from NCBI
 3. Run count_reads.sh using featureCounts through SLURM to count the number of RNA-Seq reads mapped to each gene based on the alignment and GTF (annotation) file  
+
+# RStudio DESeq Analysis
+All codes provided in "r_codes"
+1. Copy count_reads.txt from cluster to local desktop
+2. Prepare count_data in R using count_reads.txt
+3. Ran into issues with formatting of count_data (negative, zero, non-numerical values); fixed with codes to manipulate count_data
+4. Performed analysis nwith DESeq2 library 
+5. Summarized results to obtain fold-change and p-value data
+6. Created graphs to visualize expression results
