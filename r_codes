@@ -1,0 +1,46 @@
+# download count_reads.txt locally
+scp ltnguy95@opuntia.rcdc.uh.edu:/project/stuckert/ltnguy95/final_project/count_reads/count_reads.txt ~/Desktop
+
+# import data
+count_data <- read.table("/Users/Truclien/Desktop/count_reads.txt", header = TRUE, row.names = 1)
+
+# install packages
+install.packages("DESeq2")
+install.packages("edgeR")
+
+# summary and dimensions of data
+summary(count_data)
+dim(count_data)
+
+# load DESeq2
+library(DESeq2)
+
+# run DESeq2
+conditions <- factor(c("Control", "Control", "Control", "Experiment", "Experiment", "Experiment"))
+colData <- data.frame(condition = conditions)
+
+# troubleshoot errors
+count_data_filtered <- count_data[rowSums(count_data >= 10) >= 2, ]
+count_data_filtered <- count_data[rowSums(count_data > 0) > 0, ]
+count_data_filtered <- count_data_filtered + 1
+
+# continue running DESeq2
+dds <- DESeqDataSetFromMatrix(
+     countData = count_data_filtered,
+     colData = colData,
+     design = ~ condition
+)
+dds <- DESeq(dds)
+
+# results
+res <- results(dds)
+head(res)
+
+# visualize results
+plotMA(res, ylim = c(-5, 5))
+plot(res$log2FoldChange, -log10(res$pvalue), pch=20, main="Volcano Plot")
+
+# check for significant genes
+res_sig <- res[which(res$padj < 0.05 & abs(res$log2FoldChange) > 1), ]
+head(res_sig)
+
