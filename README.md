@@ -1,6 +1,5 @@
 # Ocean Acidification in Pacific oysters (Crassostrea gigas) Gene Expression
 
-# Description
 We are determining how ocean acidification, as represented by pH levels, impacts the transcriptome of Pacific oysters. The normal pH environment is represented by pH 7.8, which is used as the control (reference) group, while pH 7.5 represents the experiemental group testing the transcriptomic responses of acidified ocean conditions.
 
 # Packages Used
@@ -42,6 +41,6 @@ All codes provided in "r_codes"
 1. Copy count_reads.txt from cluster to local desktop
 2. Prepare "count_data" in R using count_reads.txt
 3. Ran into issues with formatting of count_data (negative, zero, non-numerical values); fixed with codes to manipulate "count_data"
-4. Performed differential expression analysis with DESeq2 library 
-5. Summarized results to obtain fold-change and p-value data
-6. Created graphs to visualize expression results
+4. Perform differential expression analysis with DESeq2 library 
+5. Summarize results to obtain fold-change and p-value data (filter top significant genes by fold-change and p-value)
+6. Create graphs to visualize expression results
