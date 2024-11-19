@@ -13,13 +13,18 @@ pH 7.5: SRX11136232
 4. Convert .sra files to .fastq files using fasterq-dump
 
 # Transcriptome Assembly
-SPAdes was already downloaded
-1. Create scripts to run SPAdes for each group
+1. Download SPAdes
+2. Create scripts to run SPAdes for each group
 pH 7.8: control_spades.sh
 pH 7.5: experiment_spades.sh
-2. Run scripts through SLURM
+3. Run scripts through SLURM
 
 # Align Reads
 1. Download HISAT2
 2. Download samtools
-3. Run align_reads.sh through SLURM to align the contigs.fasta output of pH 7.5 to that of pH 7.8 (used as reference)
+3. Run align_reads.sh through SLURM to align the contigs.fasta output of pH 7.5 to that of pH 7.8 (used as reference) and convert the SAM file to BAM
+
+# Count Reads
+1. Download Subreads
+2. Obtain GTF file for Pacific oysters from NCBI
+3. Run count_reads.sh using featureCounts through SLURM to count the number of RNA-Seq reads mapped to each gene based on the alignment and GTF (annotation) file  
