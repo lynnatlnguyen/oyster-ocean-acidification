@@ -6,7 +6,6 @@ count_data <- read.table("/Users/Truclien/Desktop/count_reads.txt", header = TRU
 
 # install packages
 install.packages("DESeq2")
-install.packages("edgeR")
 
 # summary and dimensions of data
 summary(count_data)
@@ -40,7 +39,7 @@ head(res)
 plotMA(res, ylim = c(-5, 5))
 plot(res$log2FoldChange, -log10(res$pvalue), pch=20, main="Volcano Plot")
 
-# check for significant genes
+# reuslts for significant genes
 res_sig <- res[which(res$padj < 0.05 & abs(res$log2FoldChange) > 1), ]
 head(res_sig)
 
