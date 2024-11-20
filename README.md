@@ -44,5 +44,6 @@ All codes provided in "r_codes"
 2. Prepare "count_data" in R using count_reads.txt
 3. Ran into issues with formatting of count_data (negative, zero, non-numerical values); fixed with codes to manipulate "count_data"
 4. Perform differential expression analysis with DESeq2 library 
-5. Summarize results to obtain fold-change and p-value data (filter top significant genes by fold-change and p-value)
-6. Create graphs to visualize expression results
+5. Summarize results to obtain fold-change and p-value data
+6. Filter top significant genes by fold-change and p-value. Search top 6 genes on NCBI Gene to determine functions 
+7. Create graphs to visualize expression results
